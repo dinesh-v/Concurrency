@@ -54,6 +54,7 @@ class StockReader {
                 e.printStackTrace();
             }
         });
+        executorService.shutdown();
         long end = System.currentTimeMillis();
         NumberFormat formatter = new DecimalFormat("#0.00000");
         System.out.println("Execution time in getParallel is " + formatter.format((end - start) / 1000d) + " seconds");
