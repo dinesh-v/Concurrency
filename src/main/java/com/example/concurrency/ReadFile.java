@@ -26,7 +26,6 @@ class ReadFile {
                 e.printStackTrace();
             }
             assert content != null;
-            String[] ticker = content.split("\n");
             return Arrays.stream(content.split("\n")).collect(Collectors.toList());
         } else {
             throw new RuntimeException("File not found");

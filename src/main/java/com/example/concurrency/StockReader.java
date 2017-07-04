@@ -38,7 +38,7 @@ class StockReader {
         return stocks;
     }
 
-    static List<Stock> getParallel(List<String> tickers) {
+    static List<Stock> getParallelWithExecutor(List<String> tickers) {
         if (tickers.size() == 0) return null;
         List<Stock> stocks = new LinkedList<>();
         ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() * 10);
@@ -57,7 +57,7 @@ class StockReader {
         executorService.shutdown();
         long end = System.currentTimeMillis();
         NumberFormat formatter = new DecimalFormat("#0.00000");
-        System.out.println("Execution time in getParallel is " + formatter.format((end - start) / 1000d) + " seconds");
+        System.out.println("Execution time in getParallelWithExecutor is " + formatter.format((end - start) / 1000d) + " seconds");
         return stocks;
     }
 
